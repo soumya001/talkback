@@ -175,21 +175,6 @@
         <item>@string/value_default_keymap</item>
     </string-array>
 
-    <string-array name="pref_select_keymap_values">
-        <item>@string/classic_keymap_entry_value</item>
-        <item>@string/default_keymap_entry_value</item>
-    </string-array>
-
-    <string-array name="pref_choose_trigger_modifier_entries">
-        <item>@string/keycombo_key_modifier_alt</item>
-        <item>@string/keycombo_key_modifier_meta</item>
-    </string-array>
-
-    <string-array name="pref_choose_trigger_modifier_values">
-        <item>@string/trigger_modifier_alt_entry_value</item>
-        <item>@string/trigger_modifier_meta_entry_value</item>
-    </string-array>
-
     <!-- Keyboard echo preference entries. Must be synchronized with TextFormatters.java. -->
     <string-array name="pref_keyboard_echo_entries">
         <item>@string/value_keyboard_echo_always</item>

@@ -33,12 +33,6 @@
             android:key="@string/pref_shake_to_read_threshold_key"
             android:summary="%s"
             android:title="@string/title_pref_shake_to_read_threshold" />
-        <SwitchPreference
-            android:title="@string/title_pref_speak_passwords_without_headphones"
-            android:summaryOff="@string/summaryOff_pref_speak_passwords_without_headphones"
-            android:summaryOn="@string/summaryOn_pref_speak_passwords_without_headphones"
-            android:key="@string/pref_speak_passwords_without_headphones"
-            />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/pref_category_feedback_key"

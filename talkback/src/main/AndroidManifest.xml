@@ -70,22 +70,11 @@
         android:icon="@drawable/icon"
         android:label="@string/talkback_title"
         android:supportsRtl="true"
-        android:allowBackup="true"
-        android:backupAgent="com.google.android.accessibility.talkback.TalkBackBackupAgent">
-
-        <receiver android:name="com.google.android.accessibility.talkback.BootReceiver"
-            android:directBootAware="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
+        android:allowBackup="true">
 
         <!-- TalkBack -->
         <service
-            android:name="com.google.android.marvin.talkback.TalkBackService"
+            android:name="TalkBackService"
             android:exported="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:settingsActivity="com.android.talkback.TalkBackPreferencesActivity"
@@ -102,143 +91,6 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibilityservice" />
         </service>
-
-        <!-- TalkBack Preferences -->
-        <activity
-            android:name="com.android.talkback.TalkBackPreferencesActivity"
-            android:exported="true"
-            android:label="@string/talkback_preferences_title"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            tools:ignore="ExportedActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.accessibilityservice.SERVICE_SETTINGS" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack Gesture Shortcut Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.TalkBackShortcutPreferencesActivity"
-            android:exported="true"
-            android:label="@string/talkback_preferences_title"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            tools:ignore="ExportedActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack Keyboard Shortcut Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.TalkBackKeyboardShortcutPreferencesActivity"
-            android:exported="true"
-            android:label="@string/talkback_preferences_title"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            tools:ignore="ExportedActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack Verbosity Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.TalkBackVerbosityPreferencesActivity"
-            android:exported="true"
-            android:label="@string/talkback_preferences_title"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            tools:ignore="ExportedActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack dump event preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.TalkBackDumpAccessibilityEventActivity"
-            android:exported="false"
-            android:label="@string/talkback_preferences_title"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-        </activity>
-
-        <!-- Accessibility tutorial -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.tutorial.AccessibilityTutorialActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="false"
-            android:immersive="true"
-            android:label="@string/accessibility_tutorial_title"
-            android:launchMode="singleInstance"
-            android:theme="@style/TutorialActivityTheme"
-            android:directBootAware="true">
-        </activity>
-
-        <activity android:name="com.google.android.accessibility.talkback.labeling.LabelImportActivity"
-            android:excludeFromRecents="true"
-            android:theme="@style/DialogStyle"
-            android:launchMode="singleInstance"
-            android:exported="true" >
-        </activity>
-
-        <!-- Custom Label Manager - Summary Activity -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity"
-            android:exported="false"
-            android:label="@string/label_manager_summary_title"
-            android:launchMode="singleTop"
-            android:theme="@style/TalkBackSettings"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity" />
-
-        <!-- Custom Label Manager - Package Activity -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.labeling.LabelManagerPackageActivity"
-            android:exported="false"
-            android:label="@string/label_manager_package_title"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity" />
-
-        <!-- Gesture Change Notification Activity -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.GestureChangeNotificationActivity"
-            android:exported="true"
-            android:theme="@style/DialogStyle"
-            android:directBootAware="true"
-            tools:ignore="ExportedActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <!-- Notification Activity used periodically to inform the user of changes -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.NotificationActivity"
-            android:exported="true"
-            android:theme="@style/DialogStyle"
-            android:directBootAware="true"
-            tools:ignore="ExportedActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <!-- Content provider for custom label data -->
-        <provider
-            android:name="com.google.android.accessibility.talkback.labeling.LabelProvider"
-            android:authorities="com.google.android.marvin.talkback.providers.LabelProvider"
-            android:exported="true"
-            android:readPermission="com.google.android.marvin.talkback.permission.LABELING"
-            android:writePermission="com.google.android.marvin.talkback.permission.LABELING"
-            android:directBootAware="true" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
